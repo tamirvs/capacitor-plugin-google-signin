@@ -11,9 +11,36 @@ npx cap sync
 
 ## API
 
-<docgen-index></docgen-index>
+<docgen-index>
+
+* [`signIn()`](#signin)
+* [Interfaces](#interfaces)
+
+</docgen-index>
 
 <docgen-api>
-<!-- run docgen to generate docs from the source -->
-<!-- More info: https://github.com/ionic-team/capacitor-docgen -->
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### signIn()
+
+```typescript
+signIn() => Promise<User | null>
+```
+
+**Returns:** <code>Promise&lt;<a href="#user">User</a> | null&gt;</code>
+
+--------------------
+
+
+### Interfaces
+
+
+#### User
+
+| Prop          | Type                |
+| ------------- | ------------------- |
+| **`id`**      | <code>string</code> |
+| **`email`**   | <code>string</code> |
+| **`idToken`** | <code>string</code> |
+
 </docgen-api>
