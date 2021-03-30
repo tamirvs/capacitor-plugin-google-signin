@@ -6,6 +6,7 @@ declare module '@capacitor/core' {
 
 export interface GoogleSignInPlugin {
   signIn(): Promise<User | null>;
+  signOut(): Promise<void>;
 }
 
 export interface User {
@@ -13,11 +14,3 @@ export interface User {
   email: string;
   idToken: string
 }
-
-// export interface GoogleAuth {
-//   signIn(): Promise<gapi.auth2.GoogleUser>;
-// }
-
-// declare global {
-//   interface Window { gapi: any; }
-// }

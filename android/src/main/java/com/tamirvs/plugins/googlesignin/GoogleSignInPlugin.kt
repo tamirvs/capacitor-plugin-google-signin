@@ -14,6 +14,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 
 
@@ -36,6 +37,14 @@ class GoogleSignInPlugin : Plugin() {
     fun signIn(call: PluginCall) {
         val intent: Intent? = googleSignInClient?.signInIntent
         startActivityForResult(call, intent, "googleSignInResult")
+    }
+
+    @PluginMethod
+    fun signOut(call: PluginCall) {
+        googleSignInClient?.signOut()
+                ?.addOnCompleteListener(this.activity, OnCompleteListener<Void> {
+                    call.resolve()
+                })
     }
 
     @ActivityCallback

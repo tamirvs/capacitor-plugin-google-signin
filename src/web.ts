@@ -1,19 +1,10 @@
 import { WebPlugin } from '@capacitor/core';
-import { GoogleSignInPlugin, User } from './definitions';
+import type { GoogleSignInPlugin, User } from './definitions';
 
 let loadGauthPromise: any;
 
 export class GoogleSignInWeb extends WebPlugin implements GoogleSignInPlugin {
   private gauth?: gapi.auth2.GoogleAuth;
-
-  constructor() {
-    super({
-      name: 'GoogleSignIn',
-      platforms: ['web'],
-    });
-    
-    // this.loadGauth();
-  }
 
   private async loadGauth() {
     if (!loadGauthPromise) {
@@ -60,12 +51,9 @@ export class GoogleSignInWeb extends WebPlugin implements GoogleSignInPlugin {
 
     return user;
   }
+
+  async signOut(): Promise<void> {
+    await this.loadGauth();
+    return this.gauth?.signOut();
+  }
 }
-
-import { registerPlugin } from '@capacitor/core';
-
-const GoogleSignIn = registerPlugin('GoogleSignIn', {
-  web: new GoogleSignInWeb()
-});
-
-export { GoogleSignIn };

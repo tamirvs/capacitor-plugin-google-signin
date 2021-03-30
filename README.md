@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`signIn()`](#signin)
+* [`signOut()`](#signout)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -28,6 +29,15 @@ signIn() => Promise<User | null>
 ```
 
 **Returns:** <code>Promise&lt;<a href="#user">User</a> | null&gt;</code>
+
+--------------------
+
+
+### signOut()
+
+```typescript
+signOut() => Promise<void>
+```
 
 --------------------
 
